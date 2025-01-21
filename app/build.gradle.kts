@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.individu"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.individu"
@@ -40,4 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    
+
+    implementation ("com.makeramen:roundedimageview:2.3.0")
 }
