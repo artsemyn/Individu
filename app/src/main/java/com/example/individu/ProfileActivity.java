@@ -19,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
+
         TextView nameTxt = findViewById(R.id.personName);
         TextView numberTxt = findViewById(R.id.personNumber);
         TextView emailTxt = findViewById(R.id.personEmail);
