@@ -47,15 +47,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 intent.putExtra("name", personList.get(position).getName());
+                intent.putExtra("number", personList.get(position).getNumber());
+                intent.putExtra("email", personList.get(position).getEmail());
+                intent.putExtra("address", personList.get(position).getAddress());
                 startActivity(intent);
             }
         };
     }
 
     private void setPersonInfo() {
-        personList.add(new Person("Luke"));
-        personList.add(new Person("Artem"));
-        personList.add(new Person("Vyn"));
-        personList.add(new Person("Marius"));
+        personList.add(new Person("Luke", "087741135316", "luke@email.com", "Jakarta Barat"));
+        personList.add(new Person("Artem", "087741135316", "artem@email.com", "Jakarta Pusat"));
+        personList.add(new Person("Vyn", "087741135316", "vyn@email.com", "Jakarta Timur"));
+        personList.add(new Person("Marius", "087741135316", "marius@email.com", "Jakarta Selatan"));
     }
 }
