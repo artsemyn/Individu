@@ -21,7 +21,7 @@
         app:riv_corner_radius="150dp"/>
 
     <TextView
-        android:id="@+id/personName"
+        android:id="@id/personName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,7 +29,8 @@
         android:text=""
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textAlignment="center"/>
     
     <LinearLayout
         android:layout_width="match_parent"

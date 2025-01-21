@@ -1,6 +1,8 @@
 package com.example.individu;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Person> personList;
     private RecyclerView recyclerView;
+    private ListAdapter.RecyclerViewClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        ListAdapter adapter = new ListAdapter(personList);
+        setOnClickListener();
+        ListAdapter adapter = new ListAdapter(personList, listener);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+    }
+
+    private void setOnClickListener() {
+        listener = new ListAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("name", personList.get(position).getName());
+                startActivity(intent);
+            }
+        };
     }
 
     private void setPersonInfo() {
