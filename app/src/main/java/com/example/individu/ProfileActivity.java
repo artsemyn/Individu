@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         Button callBtn = findViewById(R.id.callButton);
         Button emailBtn = findViewById(R.id.emailButton);
         Button navigateBtn = findViewById(R.id.navigateButton);
+        FloatingActionButton backBtn = findViewById(R.id.backBtn);
 
         String name = "The name hasn't been set";
         String number = "The number hasn't been set";
@@ -73,6 +76,13 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.setPackage("com.google.android.apps.maps");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

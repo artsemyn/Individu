@@ -78,12 +78,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Confirm" />
+        android:text="Confirm"
+        android:backgroundTint="@color/bgBtn"
+        android:textColor="@color/iconBtn"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/cancelBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Cancel"/>
+        android:text="Cancel"
+        android:backgroundTint="@color/bgBtn"
+        android:textColor="@color/iconBtn"
+        android:textStyle="bold"/>
 </LinearLayout>

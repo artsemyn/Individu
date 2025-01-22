@@ -1,5 +1,6 @@
 package com.example.individu;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -57,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("email", personList.get(position).getEmail());
                 intent.putExtra("address", personList.get(position).getAddress());
                 startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View v, int position) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Delete " + personList.get(position).getName() + "?")
+                        .setMessage("Are you sure you want to delete this contact?")
+                        .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                            personList.remove(position);
+
+                            setAdapter();
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .show();
             }
         };
     }

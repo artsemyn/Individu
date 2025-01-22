@@ -42,5 +42,9 @@ public class NewContactActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        cancelBtn.setOnClickListener(v -> {
+            finish();
+        });
     }
 }

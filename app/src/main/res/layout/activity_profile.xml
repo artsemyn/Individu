@@ -11,11 +11,13 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:tint="@color/iconBtn"
         android:backgroundTint="@color/bgBtn"
-        android:src="@drawable/outline_arrow_back_ios_new_24"/>
+        android:src="@drawable/outline_arrow_back_ios_new_24"
+        android:layout_marginTop="20dp"/>
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:layout_width="180dp"

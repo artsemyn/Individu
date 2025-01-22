@@ -19,19 +19,34 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         this.listener = listener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
        private TextView nameTxt;
 
        public MyViewHolder(final View view) {
            super(view);
            nameTxt = view.findViewById(R.id.personName);
            view.setOnClickListener(this);
+           view.setOnLongClickListener(this);
        }
 
         @Override
         public void onClick(View v) {
             listener.onClick(v, getAdapterPosition());
         }
+
+
+        public boolean onLongClick(View v) {
+            if (listener != null) {
+                listener.onLongClick(v, getAdapterPosition());
+            }
+            return true; // Return true to indicate the event was handled
+        }
+
+        @Override
+        public boolean onLongClickUseDefaultHapticFeedback(@NonNull View v) {
+            return View.OnLongClickListener.super.onLongClickUseDefaultHapticFeedback(v);
+        }
+
     }
 
     @NonNull
@@ -54,5 +69,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     public interface RecyclerViewClickListener {
         void onClick(View v, int position);
+        void onLongClick(View v, int position);
     }
 }
