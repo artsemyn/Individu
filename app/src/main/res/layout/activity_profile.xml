@@ -4,10 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primBg"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".ProfileActivity">
-    
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/iconBtn"
+        android:backgroundTint="@color/bgBtn"
+        android:src="@drawable/outline_arrow_back_ios_new_24"/>
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:layout_width="180dp"
         android:layout_height="180dp"
@@ -16,7 +25,7 @@
         android:layout_gravity="center"
         android:scaleType="centerCrop"
         android:src="@drawable/outline_person_24"
-        app:riv_border_color="@color/black"
+        app:riv_border_color="@color/white"
         app:riv_border_width="2dp"
         app:riv_corner_radius="150dp"/>
 
@@ -45,7 +54,9 @@
             android:layout_marginRight="10dp"
             android:text="Call"
             android:textStyle="bold"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textColor="@color/iconBtn"
+            android:backgroundTint="@color/bgBtn"/>
 
         <Button
             android:id="@+id/emailButton"
@@ -55,7 +66,9 @@
             android:layout_marginLeft="10dp"
             android:text="Email"
             android:textStyle="bold"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textColor="@color/iconBtn"
+            android:backgroundTint="@color/bgBtn"/>
 
         <Button
             android:id="@+id/navigateButton"
@@ -65,13 +78,16 @@
             android:layout_marginLeft="10dp"
             android:text="Navigate"
             android:textStyle="bold"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textColor="@color/iconBtn"
+            android:backgroundTint="@color/bgBtn"/>
     </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone Number: "/>
+            android:text="Phone Number: "
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/personNumber"
@@ -79,12 +95,15 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email: "/>
+        android:text="Email: "
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/personEmail"
@@ -92,12 +111,15 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address: "/>
+        android:text="Address: "
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/personAddress"
@@ -105,5 +127,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

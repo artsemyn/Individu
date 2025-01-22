@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#D1CFC9</color>
+    <color name="bgBtn">#567C8D</color>
+    <color name="iconBtn">#2F4156</color>
+    <color name="primary">#52677D</color>
+    <color name="accent">#C8D9E6</color>
+    <color name="primBg">#0F1A2B</color>
+    <color name="secBg">#1C2E4A</color>
 </resources>

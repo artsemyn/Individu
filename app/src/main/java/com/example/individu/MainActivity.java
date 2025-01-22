@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Person> personList;
     private RecyclerView recyclerView;
     private ListAdapter.RecyclerViewClickListener listener;
+    private static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
         personList = new ArrayList<>();
+
+        findViewById(R.id.addBtn).setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), NewContactActivity.class);
+            startActivityForResult(intent, REQUEST_CODE);
+        });
 
         setPersonInfo();
         setAdapter();
@@ -60,5 +66,21 @@ public class MainActivity extends AppCompatActivity {
         personList.add(new Person("Artem", "087741135316", "artem@email.com", "Jakarta Pusat"));
         personList.add(new Person("Vyn", "087741135316", "vyn@email.com", "Jakarta Timur"));
         personList.add(new Person("Marius", "087741135316", "marius@email.com", "Jakarta Selatan"));
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                String name = data.getStringExtra("name");
+                String number = data.getStringExtra("number");
+                String email = data.getStringExtra("email");
+                String address = data.getStringExtra("address");
+
+                personList.add(new Person(name, number, email, address));
+                setAdapter();
+            }
+        }
     }
 }
