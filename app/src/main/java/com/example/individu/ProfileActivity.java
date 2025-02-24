@@ -30,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         Button callBtn = findViewById(R.id.callButton);
         Button emailBtn = findViewById(R.id.emailButton);
         Button navigateBtn = findViewById(R.id.navigateButton);
+        Button shareBtn = findViewById(R.id.shareButton);
         FloatingActionButton backBtn = findViewById(R.id.backBtn);
 
         String name = "The name hasn't been set";
@@ -83,6 +84,23 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        String finalName = name;
+        String finalNumber = number;
+        String finalEmail = email;
+        String finalAddress = address;
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Bagikan Kontak");
+                intent.putExtra(Intent.EXTRA_TEXT, "Name: " + finalName + " " + "Phone Number: " + finalNumber + " " + "Email: " + finalEmail + " " + "Address: " + finalAddress);
+                startActivity(Intent.createChooser(intent, "Share via"));
+
             }
         });
     }

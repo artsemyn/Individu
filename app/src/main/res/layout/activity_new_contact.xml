@@ -10,14 +10,14 @@
     android:background="@color/primBg">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
         android:src="@drawable/outline_person_24"
-        app:riv_border_color="@color/white"
+        app:riv_border_color="@color/accent"
         app:riv_border_width="2dp"
         app:riv_corner_radius="150dp"/>
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name: "
-        android:textColor="@color/white"/>
+        android:textColor="@color/accent"/>
 
     <EditText
         android:id="@+id/nameInput"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Phone Number: "
-        android:textColor="@color/white"/>
+        android:textColor="@color/accent"/>
 
     <EditText
         android:id="@+id/numberInput"
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email: "
-        android:textColor="@color/white"/>
+        android:textColor="@color/accent"/>
 
     <EditText
         android:id="@+id/emailInput"
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Address: "
-        android:textColor="@color/white"/>
+        android:textColor="@color/accent"/>
 
     <EditText
         android:id="@+id/adrInput"
@@ -80,7 +80,7 @@
         android:layout_marginTop="15dp"
         android:text="Confirm"
         android:backgroundTint="@color/bgBtn"
-        android:textColor="@color/iconBtn"
+        android:textColor="@color/white"
         android:textStyle="bold"/>
 
     <Button
@@ -90,6 +90,6 @@
         android:layout_marginTop="10dp"
         android:text="Cancel"
         android:backgroundTint="@color/bgBtn"
-        android:textColor="@color/iconBtn"
+        android:textColor="@color/white"
         android:textStyle="bold"/>
 </LinearLayout>

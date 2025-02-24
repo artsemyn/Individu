@@ -19,7 +19,7 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/outline_person_24"
                 android:layout_gravity="bottom|end"
-                app:tint="@color/iconBtn"
+                app:tint="@color/white"
                 android:backgroundTint="@color/bgBtn"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"/>
