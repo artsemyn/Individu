@@ -16,22 +16,28 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    TextView nameTxt, numberTxt, emailTxt, addressTxt;
+
+    Button callBtn, emailBtn,navigateBtn, shareBtn;
+    FloatingActionButton backBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
 
-        TextView nameTxt = findViewById(R.id.personName);
-        TextView numberTxt = findViewById(R.id.personNumber);
-        TextView emailTxt = findViewById(R.id.personEmail);
-        TextView addressTxt = findViewById(R.id.personAddress);
+        nameTxt = findViewById(R.id.personName);
+        numberTxt = findViewById(R.id.personNumber);
+        emailTxt = findViewById(R.id.personEmail);
+        addressTxt = findViewById(R.id.personAddress);
 
-        Button callBtn = findViewById(R.id.callButton);
-        Button emailBtn = findViewById(R.id.emailButton);
-        Button navigateBtn = findViewById(R.id.navigateButton);
-        Button shareBtn = findViewById(R.id.shareButton);
-        FloatingActionButton backBtn = findViewById(R.id.backBtn);
+         callBtn = findViewById(R.id.callButton);
+         emailBtn = findViewById(R.id.emailButton);
+         navigateBtn = findViewById(R.id.navigateButton);
+         shareBtn = findViewById(R.id.shareButton);
+         backBtn = findViewById(R.id.backBtn);
 
         String name = "The name hasn't been set";
         String number = "The number hasn't been set";
@@ -91,6 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
         String finalNumber = number;
         String finalEmail = email;
         String finalAddress = address;
+
         shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

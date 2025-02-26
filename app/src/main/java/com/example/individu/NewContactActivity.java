@@ -14,21 +14,25 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class NewContactActivity extends AppCompatActivity {
 
+    Button confirmBtn, cancelBtn;
+
+    String name, number, email, address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_new_contact);
 
-        Button confirmBtn = findViewById(R.id.confirmBtn);
-        Button cancelBtn = findViewById(R.id.cancelBtn);
+        confirmBtn = findViewById(R.id.confirmBtn);
+        cancelBtn = findViewById(R.id.cancelBtn);
+
+        name = ((EditText) findViewById(R.id.nameInput)).getText().toString();
+        number = ((EditText) findViewById(R.id.numberInput)).getText().toString();
+        email = ((EditText) findViewById(R.id.emailInput)).getText().toString();
+        address = ((EditText) findViewById(R.id.adrInput)).getText().toString();
 
         confirmBtn.setOnClickListener(v -> {
-            String name = ((EditText) findViewById(R.id.nameInput)).getText().toString();
-            String number = ((EditText) findViewById(R.id.numberInput)).getText().toString();
-            String email = ((EditText) findViewById(R.id.emailInput)).getText().toString();
-            String address = ((EditText) findViewById(R.id.adrInput)).getText().toString();
-
             if (name.isEmpty() || number.isEmpty() || email.isEmpty() || address.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {

@@ -14,13 +14,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Person> personList;
     private RecyclerView recyclerView;
+    private ListAdapter adapter;
     private ListAdapter.RecyclerViewClickListener listener;
     private static final int REQUEST_CODE = 1;
+
+    FloatingActionButton addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +35,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         personList = new ArrayList<>();
 
-        findViewById(R.id.addBtn).setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), NewContactActivity.class);
-            startActivityForResult(intent, REQUEST_CODE);
+         addBtn = findViewById(R.id.addButton);
+        addBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewContactActivity.class);
+                startActivity(intent);
+            }
         });
+
 
         setPersonInfo();
         setAdapter();
@@ -41,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setAdapter() {
         setOnClickListener();
+        adapter = new ListAdapter(personList, listener);
         ListAdapter adapter = new ListAdapter(personList, listener);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -67,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage("Are you sure you want to delete this contact?")
                         .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                             personList.remove(position);
-
+                            adapter.notifyItemRemoved(position);
                             setAdapter();
                         })
                         .setNegativeButton(android.R.string.no, null)
