@@ -1,8 +1,11 @@
 package com.example.individu;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -49,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
         setAdapter();
     }
 
+    private void setupLongClickVibration(View view) {
+        Vibrator vibrator = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                vibrator.vibrate(100);
+            }
+        }
+    }
+
     private void setAdapter() {
         setOnClickListener();
         adapter = new ListAdapter(personList, listener);
@@ -73,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLongClick(View v, int position) {
+                setupLongClickVibration(v);
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Delete " + personList.get(position).getName() + "?")
                         .setMessage("Are you sure you want to delete this contact?")
